@@ -1,0 +1,40 @@
+<div class="widget p-4 p-md-5 border-top module">
+   <h4 class="module-title"><i class="fas fa-fire"></i>  {{ module.header }}</h4>
+    <div class="panel-body">
+        
+        {% if module.donor %}
+            <div class="top-donator">
+                <div class="avatar">
+                    <img src="https://cravatar.eu/head/{{ module.ign }}.png">
+                </div>
+                <div class="info">
+                 
+                    <strong class="donator-ign">{{ module.ign }}</strong>
+                    <div class="amount">
+                        {% if module.displayAmount %}
+                            {{ __("Donated") }} <strong class="donator-amount">{{ module.total|money }}</strong> <small class="donator-currency">{{ store.currency }}</small>
+                        {% else %}
+                            {{ __("Donated the most ") }}
+                        {% endif %}
+
+                        {% if module.period == "hourly" %}
+                            {{ __("this hour.") }}
+                        {% elseif module.period == "daily" %}
+                            {{ __("today.") }}
+                        {% elseif module.period == "monthly" %}
+                            {{ __("this month.") }}
+                        {% elseif module.period == "yearly" %}
+                            {{ __("this year.") }}
+                        {% else %}
+                            {{ __("this week.") }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {{ __("No recent top donator to display.") }}
+        {% endif %}   
+       
+       
+    </div>
+</div>

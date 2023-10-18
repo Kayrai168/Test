@@ -1,0 +1,25 @@
+{% if module.display %}
+<div class="widget p-4 p-md-5 border-top module">
+    <h4 class="module-title"><i class="fas fa-fire"></i>  {{ module.header }}
+
+        {% if module.online %}
+        <span class="badge badge-success float-right d-inline-block">{{ __("Online") }}</span>
+        {% else %}
+        <span class="badge badge-danger float-right d-inline-block">{{ __("Offline") }}</span>
+        {% endif %}
+
+    </h4>
+    <div class="card text-center p-3 w-100 serverstatus">
+
+        <h4 class="mb-2">{{ module.ip }}{% if module.port != 25565 %}:{{ module.port }}{% endif %}</h4>
+        <p class="text-heading-font mb-0">
+            {% if module.online %}
+            {{ module.players.online }} / {{ module.players.max }}
+            {% else %}
+            0/0
+            {% endif %}
+            {{ __("players online.") }}
+        </p>
+    </div>
+</div>
+{% endif %}

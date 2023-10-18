@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <div id="login">
+    <div id="content-outer" >
+         <section  id="login-section">
+            <div  id="login-1">
+                <div  id="login-2">
+                    <p>{{ __("Please enter your username to continue") }}</p>
+                    {{ loginform|raw }}
+                </div>
+            </div>
+            
+        </section>
+    </div>
+</div>
+    {% include "content_footer.html" %}
+
+{% endblock %}

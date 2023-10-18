@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+      <div id="content-outer" class="container px-0 px-lg-3">
+       <!-- <section class="bg-white p-0 row no-gutters border-left border-right layout-standard"> -->
+            <div class="col-12 col-lg-8 desc">
+               <h2 class="desc-title"><i class="fas fa-fire"></i> Welcome to X-fire Store</h2>
+                <div class="p-xl-5 p-4">
+                    {{ index.description|raw }}
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 sidebar">
+                {{ modules|raw }}
+            </div>
+        <!--</section> -->
+    </div>
+    
+     {% include "content_footer.html" %}
+   
+
+{% endblock %}

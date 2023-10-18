@@ -1,0 +1,327 @@
+<!-- Configs -->
+{% set discord_json_api = 'yourjsonapiid' %}
+{% set discord_invite = 'discordinvite' %}
+{% set server_ip = 'mc.hypixel.net' %}
+{% set server_port = '25565' %}
+
+
+<!-- Configs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{{ store.name }} | {{ page.title }}</title>
+
+    <link rel="shortcut icon" href="{{ store.favicon }}">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+
+        _gaq.push(['_setAccount', 'UA-36735942-3']);
+        _gaq.push(['_trackPageview']);
+
+        {% if store.googleAnalytics %}
+        _gaq.push(['b._setAccount', '{{ store.googleAnalytics }}']);
+        _gaq.push(['b._trackPageview']);
+        {% endif %}
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+                '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+    
+
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Generated via SASS -->
+    <link href="{{ asset('store.css') }}" rel="stylesheet">
+    <link href="{{ asset('custom.css') }}" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a43b53df44.js" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Custom Theme CSS Output -->
+    <style>{{ store.css|raw }}</style>
+
+</head>
+<body>
+
+
+  
+
+
+
+{% include "header_2.html" %}
+
+
+
+
+<div class="notification">
+    {% if page.message.display %}
+        <div class="alert alert-{{ page.message.type}} mb-0 mb-4 container" role="alert">
+            {{ page.message.text }}
+        </div>
+    {% endif %}
+</div>
+
+{% block content %}{% endblock %}
+
+<footer>
+   
+   <div class="top-footer">
+       <div class="contact-container">
+           <h1 class="footer-title"><span class="span">></span> CONTACT US</h1>
+           <p class="footer-paragraphe">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices </p>
+       </div>
+        <div class="img-container">
+          <img class="footer-img" src="{{ store.logo }}" />
+       </div>
+        <div class="support-container">
+           <h1 class="footer-title"><span class="span">></span> SUPPORT US</h1>
+           <p class="footer-paragraphe">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
+           <a href="" class="footer-btn">Go to store</a>
+       </div>
+   </div>
+   
+    <div class="footer">
+       <p class="copyright">© Copyright 2020 X-FIRETheme | Powered by <a href="https://tebex.io">Tebex</a></p>
+   </div>
+
+   
+</footer>
+
+
+<div class="modal fade remote-modal" tabindex="-1" role="dialog" aria-labelledby="popup-modal" aria-hidden="true"  id="popup-modal">
+</div>
+
+
+{% if page.category == "checkout" %}
+<script src="https://js.stripe.com/v2/"></script>
+{% endif %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<script>
+   particlesJS("particles-js", {
+  "particles":{
+    "number":{
+      "value":200,
+      "density":{
+        "enable":true,
+        "value_area":3000
+      }
+    },
+    "color":{
+      "value":"#fd7907"
+    },
+    "shape":{
+      "type":"circle",
+      "stroke":{
+        "width":0,
+        "color":"#000000"
+      },
+      "polygon":{
+        "nb_sides":3
+      },
+      "image":{
+        "src":"img/github.svg",
+        "width":100,
+        "height":100
+      }
+    },
+    "opacity":{
+      "value":0.8,
+      "random":true,
+      "anim":{
+        "enable":false,
+        "speed":1,
+        "opacity_min":0.1,
+        "sync":false
+      }
+    },
+    "size":{
+      "value":4,
+      "random":true,
+      "anim":{
+        "enable":true,
+        "speed":5,
+        "size_min":0.01,
+        "sync":false
+      }
+    },
+    "line_linked":{
+      "enable":false,
+      "distance":500,
+      "color":"#ffffff",
+      "opacity":0.4,
+      "width":1
+    },
+    "move":{
+      "enable":true,
+      "speed":7.8,
+      "direction":"top",
+      "random":true,
+      "straight":false,
+      "out_mode":"out",
+      "bounce":false,
+      "attract":{
+        "enable":false,
+        "rotateX":600,
+        "rotateY":1200
+      }
+    }
+  },"interactivity":{
+    "detect_on":"canvas",
+    "events":{
+      "onhover":{
+        "enable":false,
+        "mode":"bubble"
+      },
+      "onclick":{
+        "enable":false,
+        "mode":"repulse"
+      },
+      "resize":true
+    },
+    "modes":{
+      "grab":{
+        "distance":400,
+        "line_linked":{
+          "opacity":0.5
+        }
+      },
+      "bubble":{
+        "distance":400,
+        "size":4,
+        "duration":0.3,
+        "opacity":1,
+        "speed":3
+      },
+      "repulse":{
+        "distance":200,
+        "duration":0.4
+      },
+      "push":{
+        "particles_nb":4
+      },
+      "remove":{
+        "particles_nb":2
+      }
+    }
+  },
+  "retina_detect":true
+});
+    
+</script>
+
+<script>
+    window.onload =function(){
+    const discord = document.getElementById('discord');
+    const server = document.getElementById('server');
+    
+    discord.addEventListener('click',discordClick);
+    server.addEventListener('click',serverClick);
+    
+    function discordClick() {
+          const input_temp = document.createElement("input");
+          input_temp.value = "{{discord_invite}}";
+          document.body.appendChild(input_temp);
+          input_temp.select();
+          document.execCommand("copy");
+          
+          document.body.removeChild(input_temp);
+          
+        }
+        function serverClick(){
+          const input_temp = document.createElement("input");
+          input_temp.value = "{{server_ip}}";
+          document.body.appendChild(input_temp);
+          input_temp.select();
+          document.execCommand("copy");
+          document.body.removeChild(input_temp);
+        }    
+    
+    }       
+    
+    
+    
+</script>
+
+<script>
+   
+    jQuery(function () {
+        count = 0
+        $.getJSON("{{ discord_json_api }}", function (data, status) {
+            count = (data['members']['length'])
+            //console.log(data)
+            $('.discord-count').html(count)
+        })
+    })
+    
+    jQuery(function () {
+        count = 0;
+       $.getJSON("https://api.minetools.eu/ping/{{server_ip}}/{{server_port}}", function (data, status) {
+            count = data['players']['online']
+            $('.srv-count').html(count)
+        });
+    })
+
+
+    
+</script>
+<script src="/templates/209/js/skin.min.js"></script>
+<script src="/templates/209/js/site.js"></script>
+<script>
+    jQuery(function () {
+        var countdowns = $(".countdown-to");
+        countdowns.each(function () {
+            setInterval(function (ele) {
+                timeLeft = parseInt(ele.attr("data-countdown"));
+                if (timeLeft == 0) {
+                    ele.html("Time Expired!");
+                } else {
+                    timeLeft--;
+                    ele.attr("data-countdown", timeLeft);
+                    var days = Math.floor(timeLeft / (60 * 60 * 24));
+                    var hours = Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60));
+                    var minutes = Math.floor((timeLeft % (60 * 60)) / (60));
+                    var seconds = Math.floor((timeLeft % 60));
+                    ele.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s");
+                }
+            }, 1000, jQuery(this));
+        });
+    });
+
+</script>
+</body>
+
+</html>

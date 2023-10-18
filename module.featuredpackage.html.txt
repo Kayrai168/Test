@@ -1,0 +1,32 @@
+{% if module.display %}
+<div class="widget p-4 p-md-5 border-top module">
+    <h4 class="module-title"><i class="fas fa-fire"></i>  {{ module.header }}</h4>
+    <div class="package card bg-transparent border-0">
+
+        <h5>{{ module.package.name[:20] }}</h5>
+
+        <a href="/package/{{ module.package.id }}">
+            <img src="{{ module.package.image.url }}" class="card-img-top toggle-tooltip {% if module.package.image.borderless %}img-rounded{% else %}img-thumbnail{% endif %}"  title="{{ __("Click for more details") }}" />
+        </a>
+
+        <div class="card-footer px-0 py-3 bg-transparent">
+
+            {% if module.package.customPrice == false and module.package.price > 0 %}
+                <strong class="h4 mb-0">
+                    {% if module.package.discount.applied %}
+                    <del class="text-danger small font-weight-bold">{{ module.package.discount.original|money }}</del>
+                    {% endif %}
+                    {{ module.package.price|money }} <small>{{ module.package.currency }}</small>
+                </strong>
+            {% endif %}
+
+            {% if module.package.basket %}
+                <a href="/checkout/packages/remove/{{ module.package.id }}" class="btn btn-primary float-right">{{ __("Remove") }}</a>
+            {% else %}
+                <a href="/package/{{ module.package.id }}" class="btn btn-primary">{{ __("View") }} </a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endif %}

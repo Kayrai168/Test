@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+    <div id="content-outer" class="container px-0 px-lg-3">
+         <section class="bg-white p-0 row no-gutters border-left border-right">
+            <div class="col-12">
+                <div class="p-xl-5 p-4">
+                    {{ gateway.note|raw }}
+		  {{ gateway.scripts|raw }}
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {% include "content_footer.html" %}
+
+{% endblock %}

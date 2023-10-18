@@ -1,0 +1,335 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+   
+
+    <div id="content-outer" class="container px-0 px-lg-3">
+       
+            <div class="col-12 checkout">
+                <div class="p-xl-5 p-4">
+                    {{ index.description|raw }}
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <h2 class="text-dark mb-3 text-center text-md-left">Your Basket</h2>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-md-right">
+                            <h3 class="h2 text-primary">Total {{ basket.price|money }} <small>{{ basket.currency }}</small></h3>
+                        </div>
+                    </div>
+
+                    <!-- Start Basket Review -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="checkout">
+                                <div class="packages mt-4">
+                                    <form method="post" action="/checkout/item/update">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped border rounded">
+                                                <thead>
+                                                <th></th>
+                                                <th>{{ __("Name") }}</th>
+                                                <th>{{ __("Package Options") }}</th>
+                                                <th>{{ __("Price") }}</th>
+                                                <th>{{ __("Qty") }}</th>
+                                                <th>&nbsp;</th>
+                                                </thead>
+                                                <tbody>
+                                                {% for package in basket.packages %}
+                                                <tr>
+                                                    <td class="attribute">{% if package.ign != "" %}<i class="fas fa-gift"></i>{%
+                                                        endif %}</td>
+                                                    <td class="name">
+                                                        <a href="/package/{{ package.id }}">
+                                                            {{ package.name }}
+                                                        </a>
+                                                    </td>
+
+                                                    <td class="options ">{% include "package_options.html" %}</td>
+                                                    <td class="price">{{ package.price|money }} <small>{{ basket.currency }}</small></td>
+                                                    <td class="quantity" style="min-width: 65px; width: 10%;">
+                                                        <input class="d-inline form-control" type="text" name="quantity[{{ package.item_id }}]" value="{{ package.quantity }}"
+                                                               {% if package.price==0.00 or package.disableQuantity %}disabled="disabled"
+                                                               {% endif %} />
+                                                    </td>
+                                                    <td class="text-center text-lg-right">
+                                                        <div class="btn-toolbar justify-content-end">
+                                                            <button class="btn btn-secondary mr-2">Update</button>
+
+                                                            <a href="/package/{{ package.id }}" class="ml-2 ">
+                                                                <i class="fas fa-info-circle text-dark"></i>
+                                                            </a>
+
+                                                            <a href="/checkout/item/remove/{{ package.item_id }}" class="ml-2">
+                                                                <i class="fas fa-times-circle text-danger"></i></a>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Basket Review -->
+
+                    <!-- Start Coupons Redeem -->
+                    <div class="row mt-5">
+                        <div class="col-12 col-xl-6">
+                            <h4 class="mb-3">{{ __("Redeem coupons / gift cards") }}</h4>
+                            <div class="coupons">
+                                <div class="redeem">
+                                    <form method="post" action="/checkout/basketcoupon/add">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="coupon" placeholder="{{ __("Have a coupon code? Enter it here and click redeem.") }}"
+                                            class="form-control">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary">{{ __("Redeem") }} <i class="fa fa-chevron-right"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if basket.coupons|length > 0 %}
+                        <div class="col-12 col-xl-6">
+                            <div class="redeemed mt-4 mt-xl-0">
+                                <h4 class="mb-3">{{ __("Redeemed coupons / gift cards") }}</h4>
+                                <table class="table table-hover table-striped table-responsive">
+                                    <tbody>
+                                    {% for coupon in basket.coupons %}
+                                    <tr>
+                                        <td>Coupon Code</td>
+                                        <td>{{ coupon.code }}</td>
+                                        <td>{{ coupon.description }}</td>
+                                        <td>
+                                            <a href="/checkout/basketcoupon/remove/{{ coupon.basket_id ?: coupon.code }}"><i class="fas fa-times-circle text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- End Coupons Redeem -->
+                    {% if store.useCheckout %}
+                        <div class="bg-light border border-1 rounded p-2 p-md-4 4 mt-5">
+                            <form method="post" action="{% if basket.price > 0 %}/checkout/pay{% else %}/checkout/free{% endif %}" {% if basket.price > 0 %}class="gateway"{% endif %}>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-success btn-block btn-lg" id="purchase-button" data-loading-text="{{ __("Loading, please wait...") }}">
+                                            {{ __("Proceed to checkout") }} &raquo;
+                                            </button>
+                                            <p class="mb-0 text-center mt-2"><small>You will be redirected to Tebex Checkout to complete your purchase</small></p>
+                                    </div>
+                                </div>
+                            </form>   
+                        </div>
+                    {% else %}
+                        <!-- Virtual Currency -->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                {% include "virtualcurrency.html" %}
+                            </div>
+                        </div>
+                        <!-- /Virtual Currency -->
+    
+                        <!-- Start Checkout Fields -->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <form method="post" action="{% if basket.price > 0 %}/checkout/pay{% else %}/checkout/free{% endif %}"
+                                      {% if basket.price> 0 %}class="gateway"{% endif %}>
+    
+                                    <input type="hidden" name="type" value="single" />
+    
+                                    {% if (checkout.amazonpay or checkout.gateways|length > 0) and basket.price > 0 %}
+    
+                                    <h4 class="mb-3">{{ __("Payment method") }}</h4>
+    
+                                    <div class="gateways">
+                                        {% for gateway in checkout.gateways %}
+                                        <div class="radio float-left text-left text-md-center">
+                                            <label>
+                                                <input type="radio" name="gateway" id="gateway" value="{{ gateway.id }}" {% if
+                                                       checkout.gateways|length==1 %} checked="checked" {% endif %} data-id="{{ gateway.gateway }}">
+                                                <img class="gateway_img border rounded" src="{{ gateway.image }}" />
+                                                {% if gateway.offset != 0 %}<span>({% if gateway.offset > 0 %}+{% endif %}{{ gateway.offset|money }}</span> <small>{{ basket.currency }}</small>){% endif %}
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+    
+                                        <div class="clearfix"></div>
+                                    </div>
+    
+                                    {% if checkout.amazonpay %}
+                                    {% include "amazonpaybutton.html" %}
+                                    {% endif %}
+    
+                                    {% endif %}
+    
+                                    {% if checkout.braintree %}
+                                    <div class="mt-5 braintree-details hidden">
+    
+                                        <div class="bt-drop-in-wrapper">
+                                            <div id="bt-dropin"></div>
+                                        </div>
+    
+                                        <input id="nonce" name="payment_method_nonce" type="hidden" />
+                                        <script src="https://js.braintreegateway.com/web/dropin/1.2.0/js/dropin.min.js"></script>
+                                        <script>
+                                            var form = document.querySelector('.gateway')[0];
+                                            var client_token = "{{ checkout.braintree.braintree_client_token }}";
+                                            var braintreeinstance;
+    
+                                            braintree.dropin.create({
+                                                authorization: client_token,
+                                                selector: '#bt-dropin',
+                                                paypal: {
+                                                    flow: 'vault'
+                                                }
+                                            }, function (createErr, instance) {
+                                                braintreeinstance = instance;
+                                            });
+    
+                                        </script>
+    
+                                    </div>
+                                    {% endif %}
+    
+                                    {% include "checkout_fields.html" %}
+    
+                                    <div class="card-container row mt-5">
+    
+                                        <div class="col-12">
+    
+                                            <h4>{{ __("Card details:") }}</h4>
+    
+                                            <div class="row">
+    
+                                                <div class="number form-group col-12 col-md-4">
+                                                    <label>{{ __("Card number:") }}</label>
+                                                    <input type="text" class="form-control" placeholder="4242 4242 4242 4242" />
+                                                </div>
+    
+    
+                                                <div class="cvc form-group col-4">
+                                                    <label>{{ __("CVC:") }} <a href="http://www.cvvnumber.com/cvv.html" target="_blank"
+                                                                               style="font-size:11px">{{ __("What is this?") }}</a></label>
+                                                    <input type="text" class="form-control" placeholder="123" />
+                                                </div>
+    
+                                                <div class="expiration form-group col-md-4">
+                                                    <div class="row">
+                                                        <div class="month form-group col-6">
+                                                            <label>{{ __("Expiry month:") }}</label>
+                                                            <select class="form-control">
+                                                                <option value='01'>{{ __("01 - January") }}</option>
+                                                                <option value='02'>{{ __("02 - February") }}</option>
+                                                                <option value='03'>{{ __("03 - March") }}</option>
+                                                                <option value='04'>{{ __("04 - April") }}</option>
+                                                                <option value='05'>{{ __("05 - May") }}</option>
+                                                                <option value='06'>{{ __("06 - June") }}</option>
+                                                                <option value='07'>{{ __("07 - July") }}</option>
+                                                                <option value='08'>{{ __("08 - August") }}</option>
+                                                                <option value='09'>{{ __("09 - September") }}</option>
+                                                                <option value='10'>{{ __("10 - October") }}</option>
+                                                                <option value='11'>{{ __("11 - November") }}</option>
+                                                                <option value='12'>{{ __("12 - December") }}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="year form-group col-6">
+                                                            <label>{{ __("Expiry year:") }}</label>
+                                                            <select class="form-control">
+                                                                {% for year in checkout.expiryYears %}
+                                                                <option value="{{ year }}">{{ year }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="tax row mt-5">
+                                        <div class="col-12 ">
+                                        </div>
+                                    </div>
+    
+                                    <div class="row mt-5">
+                                        <div class="col-12">
+                                            {{ privacyForm|raw }}
+                                        </div>
+                                    </div>
+    
+                                    <div class="row mt-5">
+                                        <div class="col-12">
+                                            <div class="bg-light border rounded p-4">
+                                                <h4 class="h2 text-center text-sm-left">{{ __("Purchase") }}</h4>
+    
+                                                {% if checkout.gateways|length > 0 or basket.price == 0 %}
+    
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-6">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" value="true" name="agreement">
+                                                                {{ __("I agree to the :link_start Terms & Conditions :link_end of this
+                                                                purchase.", {'link_start': '<a href="javascript::void(0);" data-remote="/terms"
+                                                                                               class="toggle-modal">', 'link_end': '</a>'})|raw }}
+                                                            </label>
+                                                            {% include "checkout/tokenize.html" %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-6 mt-lg-0">
+    
+                                                        <div class="col-12 text-center text-lg-right mb-3">
+                                                            {% if checkout.playerReferrals %}<a href="javascript::void(0);" class="referral-button toggle-modal btn-link text-primary" data-remote="/checkout/playerReferral">Did someone refer you?</a>{% endif %}
+                                                        </div>
+    
+    
+                                                    </div>
+                                                </div>
+    
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        {% include "checkout/buttons.html" %}
+                                                    </div>
+                                                </div>
+    
+                                                {% else %}
+    
+                                                <h5>{{ __("You need to setup a :gateway in your control panel before players can donate.",
+                                                    {"gateway": '<a href="http://server.buycraft.net/gateways" target="_blank">payment gateway</a>'})|raw
+                                                    }}</h5>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End Checkout Fields -->
+                    {% endif %}
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="bg-cta w-100 d-block">
+        {% include "content_footer.html" %}
+    </div>
+
+{% endblock %}

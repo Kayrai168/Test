@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <div id="content-outer" class="container px-0 px-lg-3">
+        
+            <div class="col-12 col-lg-8">
+                <div class="p-xl-5 p-4">
+                    {{ page.metaData.content|raw }}
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 sidebar">
+                {{ modules|raw }}
+            </div>
+       
+    </div>
+
+    {% include "content_footer.html" %}
+
+{% endblock %}

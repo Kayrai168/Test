@@ -1,0 +1,64 @@
+<div class="widget p-4 p-md-5 border-top module">
+   <h4 class="module-title"><i class="fas fa-fire"></i>  {{ module.header }}</h4>
+    <ul class="list-unstyled recent-payments">
+     
+
+    {% for payment in module.payments %}  
+    
+    
+    
+    
+    
+        <li>
+            <div class="avatar float-left mr-2">
+                <img src="https://crafatar.com/renders/head/{{ module.ign }}" width="32">
+            </div>
+            <div class="info text-heading-font">
+                <div class="ign">
+                    <strong class="payments-username">{{ module.ign }}</strong>
+
+                   
+                    <span class="payments-article">- {{ payment.name[:20] }}</span>
+                   
+
+                    
+                    <br /><small  class="payments-time">{{ payment.time }}</small>
+                   
+
+                   
+                    - <strong class="payments-amount">{{ payment.price|money }} {{ payment.currency }}</strong>
+                    
+                    
+           
+                    
+
+                    
+
+
+
+                </div>
+            </div>
+        </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    {% else %}
+        {{ __("No recent payments to display.") }}
+    {% endfor %}
+            
+    
+    </ul>
+</div>
