@@ -1,0 +1,755 @@
+.top-header{
+    background-color: #171717;
+    height: 60px;
+    font-family: Arial;
+    font-weight: 500;
+}
+
+.store-btn{
+    background-color: #5f0001;
+    box-shadow: 0px 6px 0px #430202;
+    border-radius: 20px;
+    color: white;
+    padding: 7px 15px 7px 15px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    z-index: 10;
+}
+.top-top-header{
+    height: 20px;
+    background-color: #171717;
+}
+
+.fas{
+    color: #c92c00;
+}
+.fas:hover{
+    color: #870100;
+}
+.login-text{
+    color: white;
+}
+
+.nav-link{
+    color: white;
+}
+
+#particles-js{
+    position:absolute;
+    width: 100%;
+    height: 71%;
+   
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    }
+
+.fa-fire{
+ color: #e35101;   
+}
+
+.module-title{
+    color: white;
+    text-shadow: 5px 5px 1px black;
+}
+.card{
+    border: none;
+}
+
+body{
+background: rgb(130,0,0);
+background: -moz-linear-gradient(180deg, rgba(130,0,0,1) 17%, rgba(58,58,67,1) 83%, rgba(58,58,67,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(130,0,0,1) 17%, rgba(58,58,67,1) 83%, rgba(58,58,67,1) 100%);
+background: linear-gradient(180deg, rgba(130,0,0,1) 17%, rgba(58,58,67,1) 83%, rgba(58,58,67,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#820000",endColorstr="#3a3a43",GradientType=1);
+}
+a:hover{
+    text-decoration:none;
+}
+ul li{
+    list-style: none;
+}
+.span{
+    color: #595959;
+}
+
+
+.footer{
+    height: 60px;
+    background-color: #2d2d2e;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright{
+    color: #b3afaf;
+    font-family: 'Roboto', sans-serif;
+    padding-right: 5px;
+}
+.footer{
+    text-align: center;
+    padding-top: 20px;
+}
+.footer-img{
+    width:20vw ;
+    -webkit-filter: grayscale(100%); 
+     filter: grayscale(100%) drop-shadow(7px 10px 7px black);
+    margin-left: auto;
+   margin-right: auto;
+     display: block;
+     margin-bottom: 20px;
+     padding-right: 20px;
+     padding-left: 20px;
+    
+}
+.footer-img:hover{
+    filter: none;
+    filter: drop-shadow(7px 10px 7px black);
+}
+.top-footer{
+    background-color: #3a3a43;
+    padding-top: 40px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.top-footer div{
+  flex: 1.2;  
+    
+}
+.footer-btn{
+    padding: 10px 35px;
+    margin: 10px 0 0 50px;
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    border: 1px solid #2d2d2e;
+    background-color: #2d2d2e;
+    border-radius : 25px;
+    font-family: 'Raleway' !important;
+}
+.footer-btn:hover{
+    text-decoration: none;
+}
+.footer-paragraphe{
+    margin-bottom: 25px;
+    color: white;
+    font-size: 18px;
+}
+.footer-title{
+    color: #817c7c;
+    font-family: 'Raleway' !important;
+    font-weight: 700;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111111; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #777; 
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.top-header{
+    height: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.store-btn{
+    padding: 10px 30px;
+}
+.header{
+    background-image: url(https://cdn.discordapp.com/attachments/698269824521863329/723859414045425704/Calque_1.png)!important;
+background-size: 100%;
+background-repeat: no-repeat;
+background-position-y: bottom;
+
+}
+.nav-list{
+    width: 100vw;
+    
+    
+    background-color: rgba(47,47,47,0.4);
+    display: flex;
+    justify-content: space-around;
+
+}
+.nav-item {
+    flex: 1,2;
+    color: white;
+}
+
+.nav-item a img{
+    width: 200px;
+}
+
+.nav{
+    background-color: rgba(47,47,47,0.4);
+    height: 100px;
+    box-shadow: 2px 2px 13px #121212;
+    
+}
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    margin: auto;
+}
+}
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+   
+}
+
+.header-logo {
+    width: 300px;
+    filter: drop-shadow(4px 4px 4px black);
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+}
+.info-header{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 40px;
+}
+.discord{
+    background-color: rgba(30,30,30,0.6);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+.ingame{
+    background-color: rgba(30,30,30,0.6);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+.py-4{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.discord{
+    display: flex;
+    box-shadow: 3px 3px 6px black;
+    font-family: 'Raleway', sans-serif;
+}
+.ingame{
+    display: flex;
+     box-shadow: 3px 3px 6px black;
+     font-family: 'Raleway', sans-serif;
+}
+.ingame-content{
+    padding-top: 10px;
+    padding-left: 10px;
+    line-height: 14px;
+}
+.discord img , .ingame img{
+    height: 50px;
+    filter: drop-shadow(3px 3px 6px black);
+    
+}
+.discord-text , .ingame-text{
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+.ingame-link{
+    color: #0ea948;
+    font-weight: 800;
+    font-size: 20px;
+}
+.discord-link{
+    color: #7289da;
+     font-weight: 800;
+     font-size: 20px;
+}
+.btn.disabled, .btn:disabled{
+    opacity: 1;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    .btn.disabled:hover{
+        background-color: #222222;
+    }
+}
+@media (max-width: 991.98px){
+.btn.disabled, .btn:disabled{
+    margin-bottom: 15px;
+    
+}
+    #navbar-2{
+        background-color: #C8C8C8;
+        margin-bottom: 10px;
+    }
+}
+
+.user a{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    
+}
+
+@media (min-width: 991.98px){
+    #navbar-2{
+        width: 85%;
+        height: 80px;
+        margin: auto;
+        background-color: rgb(95, 95, 95);
+        margin-top: 25px;
+        margin-bottom: 18px;
+        box-shadow: 3px 3px 10px black;
+        border-radius: 5px;
+    }
+}
+#header{
+    box-shadow: none;
+}
+.top-footer{
+    margin-top: 100px;
+}
+
+.input-group {
+    flex-direction: column;
+}
+#content-outer{
+    width: fit-content;
+    margin: auto;
+}
+.input-group > .form-control, .input-group > .custom-select, .input-group > .custom-file {
+     width: 100%;
+      border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #545454;
+    padding: 12px 10px;
+    max-width: 400px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.6s;
+    font-size: 16px;
+        
+    }
+    
+    .input-group > .form-control:focus, .input-group > .custom-select:focus, .input-group > .custom-file :focus{
+        max-width: 500px;
+    border-color: rgb( 200,200,200);
+    }
+    
+    #login-2 p {
+         color: white;
+    font-weight: 800;
+    font-size: 36px;
+    padding-bottom: 5px;
+    text-shadow: 3px 3px 10px black;
+    text-align: center;
+    }
+.input-group-btn{
+    margin: auto;
+}
+.input-group-btn button{
+     border: 0;
+    background: none;
+    display: block;
+    text-align: center;
+    border: 2px solid  #c21919;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.3s;
+    cursor: pointer;
+background: rgb(194,25,25);
+background: -moz-linear-gradient(180deg, rgba(194,25,25,1) 0%, rgba(238,15,15,1) 50%, rgba(254,134,0,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(194,25,25,1) 0%, rgba(238,15,15,1) 50%, rgba(254,134,0,1) 100%);
+background: linear-gradient(180deg, rgba(194,25,25,1) 0%, rgba(238,15,15,1) 50%, rgba(254,134,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c21919",endColorstr="#fe8600",GradientType=1);    font-size: 17px;
+    font-weight: 700;
+    box-shadow: 0px 3px 3px black;
+    border-top-left-radius: 24px !important;
+    border-bottom-left-radius: 24px !important;
+}
+.input-group-btn button:hover{
+background: rgb(194,25,25);
+background: -moz-linear-gradient(180deg, rgba(194,25,25,1) 0%, rgba(238,15,15,1) 50%, rgba(254,134,0,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(194,25,25,1) 0%, rgba(238,15,15,1) 50%, rgba(254,134,0,1) 100%);
+background: linear-gradient(180deg, rgba(194,25,25,1) 0%, rgba(238,15,15,1) 50%, rgba(254,134,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c21919",endColorstr="#fe8600",GradientType=1);   
+font-size: 18px;
+    border: 2px solid #c21919;
+}
+}
+@media (max-width: 991.98px){
+    #navbar-2{
+        background-color: white;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 853px){
+    .footer-btn{
+        margin-left: 0px;
+    }
+}
+@media ( max-width: 700px){
+   .footer-img , .img-container{
+      display: none; 
+   } 
+   .top-footer div {
+    flex: 1;
+       
+   }
+   .top-footer{
+       padding-left: 15px;
+       padding-right: 15px;
+   }
+   .support-container{
+       margin-left: 10px;
+   }
+   .contact-container{
+       margin-right: 10px;
+   }
+}
+
+@media ( max-width: 550px){
+    .top-footer{
+        display: block;
+    }
+    .info-header{
+        display: block;
+    }
+    .ingame , .discord{
+        width: fit-content;
+        margin: auto;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 903px){
+    .header{
+        background-size: auto;
+    }
+    
+}
+ @media (max-width: 991.99px) {
+     .nav{
+         height: auto;
+     }
+     .store-btn{
+         background-color: transparent;
+         border: none;
+         box-shadow: none;
+         font-size: 15px;
+         font-family: "Montserrat";
+         font-weight: 600;
+         padding: 0.5rem 1rem;
+     }
+ }
+  @media (max-width: 768px) {
+       .store-btn{
+        padding-right: 1rem;
+    padding-left: 1rem;
+    background: rgba(0,0,0,0.05);
+    margin-bottom: 0.25rem;
+        display: block;
+    padding: .5rem 1rem;
+    border-radius: 0px;
+}
+}
+
+#basketDropdownButton{
+    border-radius: 20px;
+}
+.widget ,.module ,.textbox{
+     background-color: #111111;
+     border: none !important;
+    border-top: 1px solid #272727 !important;
+}
+.giftform:focus{
+   border-color:  #444444;; 
+}
+    
+.layout-standard{
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px black;
+    background-color: #242424 !important;
+    border: none !important;
+   
+}
+    
+  @media (max-width: 991.98px){
+.btn.disabled, .btn:disabled {
+    margin-bottom: 0;
+} 
+#navbar-2{
+    margin-bottom: 20px;
+}
+}
+
+@media (min-width: 768px){
+.p-md-5 {
+     padding: 12px 3rem 3rem 3rem !important;
+} 
+}
+.module-title{
+    border-bottom: solid 5px #e35101;
+    padding-bottom: 10px;
+    box-shadow: 4px 4px 10px black;
+}
+.badge-danger{
+    text-shadow: none;
+    border-radius: 15px;
+    box-shadow: black 4px 4px 10px;
+}
+
+.progress{
+    border-radius: 15px;
+}
+.input-group-append button{
+      border-radius: 15px;
+      border-top-left-radius: 15px !important;
+      border-bottom-left-radius: 15px !important;
+  
+}
+.card {
+box-shadow: 3px 3px 10px black;
+
+}
+.card-footer:last-child {
+    border-color: #242424;
+}
+
+.card-footer .btn{
+    margin-left: 5%;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.package h5 {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: white;
+}
+.panel-body{
+    color: lightgrey;
+}
+.textbox-content{
+    color: lightgrey;
+}
+.recent-payments{
+    color: lightgrey;
+}
+
+.serverstatus{
+    background-color: #2f2f2f;
+    border-radius: 15px;
+    box-shadow: 3px 3px 2px black;
+    border: none !important;
+}
+
+.serverstatus h4{
+    color: white;
+}
+.serverstatus p{
+    color: white;
+}
+
+.progress{
+    background-color: #999;
+
+}
+.progress-bar{
+    background-color: #d84d11;
+}
+
+.buy{
+    background-color: #4da564;
+    box-shadow: 0 2px 1px #229f42;
+    background-image: none;
+    padding: 15px 50px 15px 50px;
+    height: 45px !important;
+    border-radius: 10px;
+    margin: 0 auto 15px auto;
+
+}
+.buy:hover{
+    padding: 15px 60px 15px 60px;
+    border: none !important;
+    background-color: #52d674;
+}
+
+
+
+
+.sidebar{
+    background-color: transparent;
+}
+.desc{
+    background-color: #111111;
+    box-shadow: 5px 5px 5px black;
+}
+@media (min-width: 991.99px){
+   #content-outer {
+       display: flex;
+       flex-direction: row-reverse;
+   }
+   .desc{
+       height: -moz-fit-content;
+       height: -webkit-fit-content;
+       height: -fit-content;
+   }
+}
+
+.p-md-5 {
+    padding: 12px 1rem 2rem 1rem !important;
+}
+
+
+.progress{
+    margin-top: 50px;
+}
+
+.module-title{
+    padding: 2px 0px 10px 10px;
+}
+
+.desc-title{
+    color: white;
+    padding: 10px 0px 0px 50px;
+}
+.top-donator{
+    display: flex;
+    justify-content: space-around;
+}
+.avatar img{
+   width: 50px; 
+}
+
+.package{
+    background-color: #2f2f2f !important;
+}
+.mb-0{
+    color: white;
+}
+.card-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items : center;
+}
+@media ( max-width: 1200px){
+  .top-donator{
+    display: flex;
+    justify-content: space-between;
+}}
+@media (max-width: 991.98px){
+    .top-donator{
+        justify-content: space-around;
+    }
+}
+.card-footer:last-child{
+    border-color: #a8a8a8 !important;
+}
+.package h5{
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.recent-payments li {
+   display: flex; 
+   justify-content: space-around;
+}
+.recent-payments li div img{
+    border-radius: 5px;
+    box-shadow : 4px 4px 10px black;
+}
+#content-outer .col-12 .p-xl-5{
+    background-color: #111111;
+    padding-bottom: 2rem!important;
+}
+
+div.package.card.mb-4 .card-footer{
+  background-color: #2f2f2f !important;  
+}
+.buy{
+    border-radius: 20px;
+    padding: 10px 50px 10px 50px !important;
+    box-shadow: 5px 5px 10px black !important;
+}
+.border-left , .border-right{
+    border: none !important;
+}
+.checkout div{
+    color: white;
+}
+.table-responsive{
+    color: black;
+}
+h4.mb-3{
+    color: white !important;
+}
+
+.p-xl-5 .row div h2 {
+    color: white!important;
+}
+.p-xl-5 .row div h3{
+    color: white!important;
+}
+table.table.table-striped.border.rounded{
+    color: black!important;
+}
+.input-group-append{
+    margin: auto;
+}
+@media (max-width: 991.98px){
+    .desc{
+        margin-bottom: 20px;
+    }
+    .sidebar div{
+        margin-bottom: 20px;
+    }
+}
+
+}
+@media (max-width:991.98px){
+    .header{
+        background-position-y: initial ;
+    }
+}
+    
+ .ingame img{
+     cursor: pointer;
+ }   
+
+
+
+
+
+
+
+
+
+
